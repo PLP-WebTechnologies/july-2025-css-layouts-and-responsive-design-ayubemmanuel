@@ -1,0 +1,122 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.page-header, .page-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Flexbox for Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #555;
+    padding: 0.5rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #777;
+}
+
+/* CSS Grid for Main Layout */
+.main-content {
+    display: grid;
+    grid-template-areas: "article sidebar";
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.content-article {
+    grid-area: article;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: #007BFF;
+    display: block;
+    padding: 8px 0;
+}
+
+/* Flexbox for Content Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1 1 200px; /* flex-grow, flex-shrink, flex-basis */
+    background-color: #e9e9e9;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Tablet layout: main content and sidebar are stacked */
+    .main-content {
+        grid-template-areas:
+            "article"
+            "sidebar";
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile layout: even more simplified */
+    body {
+        font-size: 14px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+}
